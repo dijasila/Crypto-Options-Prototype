@@ -13,3 +13,5 @@ This project provides a basic prototype of a trading algorithm for crypto and ex
 1. Install dependencies with:
    ```bash
    pip install -r requirements.txt
+## Results
+![results on a dummy dataset](https://github.com/dijasila/Crypto-Options-Prototype/tree/master/image)
