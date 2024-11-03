@@ -27,4 +27,4 @@ Performance Metrics:
 
 Accuracy: Overall, how often the model correctly predicts.
 Classification Report: Provides precision, recall, and F1-score for each class.
-![KNN_experiment](https://github.com/dijasila/Crypto-Options-Prototype/blob/master/image/confusion_matrix_knn.png)
+![KNN_experiment](https://github.com/dijasila/Crypto-Options-Prototype/blob/master/image/confusion_matrix.png)
