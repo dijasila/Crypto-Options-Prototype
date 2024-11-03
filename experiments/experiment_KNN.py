@@ -6,8 +6,18 @@ from sklearn.metrics import accuracy_score, classification_report, confusion_mat
 import seaborn as sns
 import matplotlib.pyplot as plt
 
+# Debugging: Check current working directory
+print("Current working directory:", os.getcwd())
+
+# Define the path to the dataset
+data_path = 'data/crypto_trading_data.csv'
+
+# Check if the file exists before attempting to load it
+if not os.path.exists(data_path):
+    raise FileNotFoundError(f"The file {data_path} was not found. Please ensure the correct path.")
+
 # Load the dataset
-df = pd.read_csv('data/crypto_trading_data.csv')
+df = pd.read_csv(data_path)
 
 # Encode the target variable (Signal) for KNN
 df['Signal'] = df['Signal'].map({'buy': 1, 'sell': 0})
@@ -37,7 +47,8 @@ results_folder = "results"
 os.makedirs(results_folder, exist_ok=True)
 
 # Save accuracy and classification report
-with open(os.path.join(results_folder, 'experiment_knn_results.txt'), 'w') as f:
+results_path = os.path.join(results_folder, 'experiment_knn_results.txt')
+with open(results_path, 'w') as f:
     f.write(f"Model Accuracy: {accuracy * 100:.2f}%\n\n")
     f.write("Classification Report:\n")
     f.write(class_report)
@@ -56,5 +67,3 @@ plt.title('Confusion Matrix of KNN Trading Signal Classifier')
 conf_matrix_path = os.path.join(results_folder, 'confusion_matrix_knn.png')
 plt.savefig(conf_matrix_path)
 print(f"Confusion matrix plot saved as {conf_matrix_path}")
-
-plt.show()
